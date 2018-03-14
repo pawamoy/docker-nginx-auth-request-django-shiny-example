@@ -1,0 +1,78 @@
+version: '3'
+
+
+networks:
+  web_network: {}
+  cache_network: {}
+  database_network: {}
+
+
+volumes:
+  data: {}
+  static: {}
+  media: {}
+
+
+services:
+
+  # reverse proxy container (nginx)
+  nginx:
+    image: nginx:1.13
+    ports:
+      - 8000:80
+    volumes:
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+      - static:/opt/services/djangoapp/static
+      - media:/opt/services/djangoapp/media
+    networks:
+      - web_network
+    depends_on:
+      - djangoapp
+      - shinyapp
+
+  # web container, with django + gunicorn
+  djangoapp:
+    build:
+      context: .
+      dockerfile: Dockerfile.django
+    environment:
+      - DJANGO_SETTINGS_MODULE
+    env_file:
+      - config/db/db.env
+    volumes:
+      - .:/opt/services/djangoapp/src
+      - static:/opt/services/djangoapp/static
+      - media:/opt/services/djangoapp/media
+    networks:
+      - database_network
+      - web_network
+      - cache_network
+    depends_on:
+      - database
+      - memcached
+      - shinyapp
+
+  shinyapp:
+    build:
+      context: .
+      dockerfile: Dockerfile.shiny
+    volumes:
+      - .:/opt/services/shinyapp/src
+    networks:
+      - web_network
+
+  # cache server (memcached)
+  memcached:
+    image: memcached:1.5
+    networks:
+      - cache_network
+
+  # database container
+  database:
+    image: postgres:10
+    volumes:
+      - data:/var/lib/postgresql/data
+    env_file:
+      - config/db/db.env
+    networks:
+      - database_network

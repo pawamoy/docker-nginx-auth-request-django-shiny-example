@@ -1,0 +1,34 @@
+FROM ubuntu:14.04
+
+RUN mkdir -p /opt/services/shinyapp/src
+WORKDIR /opt/services/shinyapp/src/
+
+RUN apt-get update; \
+    apt-get install -y \
+        software-properties-common \
+        build-essential \
+        default-jre \
+        default-jdk \
+        gfortran \
+        libbz2-dev \
+        libcurl4-openssl-dev \
+        liblapack-dev \
+        libblas-dev \
+        libpcre3 \
+        libpcre3-dev \
+        liblzma-dev \
+        libssh2-1-dev \
+        wget \
+        r-base; \
+    apt-get autoremove -y; \
+    apt-get clean;
+
+RUN R -e "install.packages('shiny', repos='https://cran.rstudio.com/')"
+
+COPY . /opt/services/shinyapp/src
+
+EXPOSE 8100
+CMD R -e "shiny::runApp(appDir='shinyapp', port=8100, host='0.0.0.0')"
+
+LABEL author="Timothée Mazzucotelli <mazzucot@igbmc.fr>"
+LABEL maintainer="Timothée Mazzucotelli <mazzucot@igbmc.fr>"

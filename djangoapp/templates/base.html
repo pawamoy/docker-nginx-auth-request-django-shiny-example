@@ -1,0 +1,58 @@
+{% load i18n static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+{#    <link rel="icon" href="../../favicon.ico">#}
+
+    <title>
+      {% block title %}Django-App{% endblock %}
+    </title>
+
+    <script src="{% static "node_modules/jquery/dist/jquery.min.js" %}"></script>
+    <script src="{% static "node_modules/bootstrap/dist/js/bootstrap.min.js" %}"></script>
+    <link href="{% static "node_modules/bootstrap/dist/css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/base.css" %}" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container-fluid">
+
+      <!-- Static navbar -->
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url "home" %}">Django-App</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="{% block navbar_home %}{% endblock %}"><a href="{% url "home" %}">Home</a></li>
+              <li class="{% block navbar_about %}{% endblock %}"><a href="{% url "about" %}">About</a></li>
+              <li class="{% block navbar_contact %}{% endblock %}"><a href="{% url "contact" %}">Contact</a></li>
+              <li class="{% block navbar_shiny %}{% endblock %}"><a href="{% url "shiny" %}">Shiny App</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+      <section id="content">
+        {% block content %}
+        {% endblock %}
+      </section>
+
+    </div> <!-- /container -->
+  </body>
+</html>

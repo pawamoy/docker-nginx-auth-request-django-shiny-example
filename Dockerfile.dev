@@ -1,0 +1,14 @@
+FROM ubuntu:14.04
+
+RUN mkdir -p /opt/services/dev/src
+WORKDIR /opt/services/dev/src
+
+RUN apt-get update; \
+    apt-get install -y curl; \
+    curl -sL https://deb.nodesource.com/setup_8.x | bash -; \
+    apt-get install -y nodejs; \
+    npm update -g npm; \
+    npm install -g yarn;
+
+LABEL author="Timothée Mazzucotelli <mazzucot@igbmc.fr>"
+LABEL maintainer="Timothée Mazzucotelli <mazzucot@igbmc.fr>"

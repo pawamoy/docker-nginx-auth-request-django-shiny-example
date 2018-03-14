@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
+  An email has been sent to the specified email address ({% for message in messages %}{{ message }}{% endfor %}).
+  Please click on the link inside the email to activate your account.
+{% endblock %}

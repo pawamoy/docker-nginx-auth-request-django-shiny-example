@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Django-App{% endblock %}
+{% block navbar_home %}active{% endblock %}
+
+{% block content %}
+  {% if messages %}
+    <div class="messages">
+      {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+  <div class="jumbotron">
+    <h1>Welcome to Optim'R</h1>
+    <h2>Règles de confidentialité:</h2>
+    <p>
+      Vos coordonnées et votre nom d’utilisateur sont des données privées enregistrées pour des raisons de sécurité. Vos données personnelles ne seront pas redistribuées ou vendues à un tiers.
+      <br>
+      Les données que vous envoyez sur le site web Optim’R ne sont pas conservées plus longtemps que le temps d’ouverture de la page web d’Optim’R. Cela veut dire qu’une fois que vous fermez votre page web avec le site web Optim’R, les données que vous avez téléchargées sont effacées de notre système.
+      <br>
+      Des fichiers logs, qui décrivent votre activité sur notre site web, sont enregistrés. Les données que vous envoyez sur notre serveur ne sont pas enregistrées dans ces fichiers logs. Ces fichiers logs sont requis pour assurer la sécurité du site web Optim’R.
+    </p>
+    <h2>Conditions d’utilisation:</h2>
+    <p>
+      Le présent site web n’est ouvert qu’aux utilisateurs qui souhaitent traiter des données qui n’identifient pas les personnes physiques. Aucune donnée nominative ou identifiante ne doit être contenue dans les données chargée vers la plateforme Optim’R : noms de personnes, adresses, adresses mail, numéro de sécurité sociale.
+    </p>
+    {% if not user.is_authenticated %}
+      <a class="btn btn-default" href="{% url "signin" %}">Sign-in</a>
+      <a class="btn btn-success" href="{% url "signup" %}">Sign-up</a>
+    {% else %}
+      <a class="btn btn-primary" href="{% url "signout" %}">Sign-out</a>
+    {% endif %}
+  </div>
+{% endblock %}
