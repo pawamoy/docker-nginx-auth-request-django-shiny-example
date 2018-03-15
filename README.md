@@ -33,3 +33,7 @@ You need to install [Docker][] and [Docker-Compose][].
 [Makefile]: https://www.gnu.org/software/make/manual/make.html
 [Docker-Compose]: https://docs.docker.com/compose/
 [Shiny]: https://shiny.rstudio.com/
+
+## Related blog post
+[Django application as an authentication / authorization server for Shiny][1]
+[1]: http://pawamoy.github.io/2018/03/15/django-auth-server-for-shiny/
