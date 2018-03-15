@@ -9,26 +9,7 @@
     {% csrf_token %}
     {{ form|bootstrap }}
     <div class="form-group">
-      <h3>Consent Agreement</h3>
-      <h4>Policy about private data</h4>
-      <ol>
-        <li>The private data, such as your email and your username, are used for security purposes. The private data will not be redistributed or sold to a third party.</li>
-        <li>The medical data that you are uploading to this website must not contain any direct identifier such as the name or the personal address of the person described in the data. This rule is a consequence of the <a href="http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679">GDPR</a>.</li>
-        <li>The medical data that you are uploading to this website are not stored any longer than the time your are connected to our website. It means that if you close the web page of Optim'R on your browser, the medical data are deleted from our website.</li>
-      </ol>
-      <p>You have read and you accept the content of the consent agreement by clicking on the button named "I agree":</p>
-      <button id="agree_button" type="button" onclick="agree()">I accept the consent agreement.</button>
-      <br><br>
       <button id="submit_button" type="submit" disabled class="btn btn-primary">Sign-up</button>
     </div>
   </form>
-
-  <script>
-    function agree() {
-      document.getElementById("agree_button").disabled = true;
-      document.getElementById("submit_button").disabled = false;
-    }
-  </script>
-
-
 {% endblock %}

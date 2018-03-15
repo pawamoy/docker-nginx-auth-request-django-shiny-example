@@ -13,6 +13,12 @@ own: ## Chown files and directories (use it without sudo).
 build: ## Build the images for Django and Shiny.
 	@docker-compose build
 
+build-django: ## Build the image for Django.
+	@docker-compose build djangoapp
+
+build-shiny: ## Build the image for Shiny.
+	@docker-compose build shinyapp
+
 dev-setup: dev-yarn ## Setup the project for development.
 
 dev-yarn: ## Run yarn in the static folder.

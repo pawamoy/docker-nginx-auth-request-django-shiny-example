@@ -12,6 +12,7 @@ django-bootstrap-form = "*"
 gunicorn = "*"
 "beautifulsoup4" = "*"
 "psycopg2-binary" = "*"
+requests = "*"
 
 
 [dev-packages]

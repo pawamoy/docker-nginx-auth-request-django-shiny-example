@@ -6,20 +6,12 @@ WORKDIR /opt/services/shinyapp/src/
 RUN apt-get update; \
     apt-get install -y \
         software-properties-common \
-        build-essential \
-        default-jre \
-        default-jdk \
-        gfortran \
-        libbz2-dev \
-        libcurl4-openssl-dev \
-        liblapack-dev \
-        libblas-dev \
-        libpcre3 \
-        libpcre3-dev \
-        liblzma-dev \
-        libssh2-1-dev \
-        wget \
-        r-base; \
+        build-essential; \
+    add-apt-repository "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/"; \
+    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9; \
+    add-apt-repository ppa:marutter/rdev; \
+    apt-get update; \
+    apt-get install -y r-base; \
     apt-get autoremove -y; \
     apt-get clean;
 
