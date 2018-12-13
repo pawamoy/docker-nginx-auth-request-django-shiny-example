@@ -38,3 +38,6 @@ You need to install [Docker][] and [Docker-Compose][].
 [Django application as an authentication / authorization server for Shiny][post]
 
 [post]: http://pawamoy.github.io/2018/03/15/django-auth-server-for-shiny/
+
+## License
+Software licensed under the [ISC license](/LICENSE).
