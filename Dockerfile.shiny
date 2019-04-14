@@ -9,7 +9,6 @@ RUN apt-get update; \
         build-essential; \
     add-apt-repository "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/"; \
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9; \
-    add-apt-repository ppa:marutter/rdev; \
     apt-get update; \
     apt-get install -y r-base; \
     apt-get autoremove -y; \
