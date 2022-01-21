@@ -17,4 +17,4 @@ requests = "*"
 
 [dev-packages]
 
-ipython = "==6.2.1"
+ipython = "==7.16.3"
