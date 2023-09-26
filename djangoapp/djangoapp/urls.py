@@ -26,8 +26,8 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
 
-    path('signin/', auth_views.login, {'template_name': 'djangoapp/signin.html'},  name='signin'),
-    path('signout/', auth_views.logout, {'template_name': 'djangoapp/signout.html'},  name='signout'),
+    path('signin/', auth_views.LoginView.as_view(), name='signin'),
+    path('signout/', auth_views.LogoutView.as_view(), name='signout'),
     path('signup/', views.signup, name='signup'),
 
     path('shiny/', views.shiny, name='shiny'),

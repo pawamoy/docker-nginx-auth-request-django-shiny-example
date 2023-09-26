@@ -1,18 +1,7 @@
-FROM ubuntu:14.04
+FROM r-base
 
 RUN mkdir -p /opt/services/shinyapp/src
 WORKDIR /opt/services/shinyapp/src/
-
-RUN apt-get update; \
-    apt-get install -y \
-        software-properties-common \
-        build-essential; \
-    add-apt-repository "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/"; \
-    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9; \
-    apt-get update; \
-    apt-get install -y r-base; \
-    apt-get autoremove -y; \
-    apt-get clean;
 
 RUN R -e "install.packages('shiny', repos='https://cran.rstudio.com/')"
 
