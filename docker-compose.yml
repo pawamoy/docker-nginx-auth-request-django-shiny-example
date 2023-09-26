@@ -3,7 +3,6 @@ version: '3'
 
 networks:
   web_network: {}
-  cache_network: {}
   database_network: {}
 
 
@@ -46,10 +45,8 @@ services:
     networks:
       - database_network
       - web_network
-      - cache_network
     depends_on:
       - database
-      - memcached
       - shinyapp
 
   shinyapp:
@@ -60,12 +57,6 @@ services:
       - .:/opt/services/shinyapp/src
     networks:
       - web_network
-
-  # cache server (memcached)
-  memcached:
-    image: memcached:1.5
-    networks:
-      - cache_network
 
   # database container
   database:
