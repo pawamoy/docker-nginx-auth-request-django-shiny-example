@@ -14,6 +14,14 @@
         ]
     },
     "default": {
+        "asgiref": {
+            "hashes": [
+                "sha256:3e1e3ecc849832fe52ccf2cb6686b7a55f82bb1d6aee72a58826471390335e47",
+                "sha256:c343bd80a0bec947a9860adb4c432ffa7db769836c64238fc34bdc3fec84d590"
+            ],
+            "markers": "python_version >= '3.8'",
+            "version": "==3.8.1"
+        },
         "beautifulsoup4": {
             "hashes": [
                 "sha256:11a9a27b7d3bddc6d86f59fb76afb70e921a25ac2d6cc55b40d072bd68435a76",
@@ -39,11 +47,12 @@
         },
         "django": {
             "hashes": [
-                "sha256:85e62019366692f1d5afed946ca32fef34c8693edf342ac9d067d75d64faf0ac",
-                "sha256:dfa537267d52c6243a62b32855a744ca83c37c70600aacffbfd98bc5d6d8518f"
+                "sha256:0a32773b5b7f4e774a155ee253ab24a841fed7e9e9061db08bf2ce9711da404d",
+                "sha256:e726764b094407c313adba5e2e866ab88f00436cad85c540a5bf76dc0a912c9e"
             ],
             "index": "pypi",
-            "version": "==2.2.26"
+            "markers": "python_version >= '3.8'",
+            "version": "==4.2.22"
         },
         "django-bootstrap-form": {
             "hashes": [
@@ -117,11 +126,19 @@
         },
         "sqlparse": {
             "hashes": [
-                "sha256:0c00730c74263a94e5a9919ade150dfc3b19c574389985446148402998287dae",
-                "sha256:48719e356bb8b42991bdbb1e8b83223757b93789c00910a616a071910ca4a64d"
+                "sha256:09f67787f56a0b16ecdbde1bfc7f5d9c3371ca683cfeaa8e6ff60b4807ec9272",
+                "sha256:cf2196ed3418f3ba5de6af7e82c694a9fbdbfecccdfc72e281548517081f16ca"
             ],
-            "markers": "python_version >= '3.5'",
-            "version": "==0.4.2"
+            "markers": "python_version >= '3.8'",
+            "version": "==0.5.3"
+        },
+        "typing-extensions": {
+            "hashes": [
+                "sha256:8676b788e32f02ab42d9e7c61324048ae4c6d844a399eebace3d4979d75ceef4",
+                "sha256:a1514509136dd0b477638fc68d6a91497af5076466ad0fa6c338e44e359944af"
+            ],
+            "markers": "python_version >= '3.9'",
+            "version": "==4.14.0"
         },
         "urllib3": {
             "hashes": [
